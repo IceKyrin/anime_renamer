@@ -7,8 +7,6 @@ import requests
 import logging
 import pandas as pd
 
-from chain_db import ChainDb
-
 
 class Rename:
     def __init__(self, file_name):
@@ -471,9 +469,7 @@ class Rename:
 
 
 if __name__ == "__main__":
-    raw = ChainDb("spider_dmhy").page(1, 1000).field("name").select()
-    name_list = [x["name"] for x in raw]
-    start = time.time()
+    name_list = []
     for name in name_list:
         print(name)
         Rename(name).get_info()
